@@ -129,32 +129,32 @@
 <hr>
 <p>注：以下内容默认阅读的人了解命令提示符（按<code>Win+R</code>，输入<code>cmd</code>并运行）中的基本操作。</p>
 <h1 id="1-部署环境"><a href="#1-部署环境" class="headerlink" title="1. 部署环境"></a>1. 部署环境</h1><p>安装Hexo之前，首先需要安装<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js</a>和<a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a>。以及为了之后的许多操作，甚至之后的编辑文章，我个人推荐再安装一个支持多语言的IDE。</p>
-<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>首先检查自己电脑中是否安装了Node.js。打开CMD，输入<code>$ node -v</code>。此条命令是检查电脑中Node.js的版本。如果返回了版本号，则说明已安装Node.js。<br>若显示“错误”，或者版本号过低：</p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>首先检查自己电脑中是否安装了Node.js。打开CMD，输入<code>node -v</code>。此条命令是检查电脑中Node.js的版本。如果返回了版本号，则说明已安装Node.js。<br>若显示“错误”，或者版本号过低：</p>
 <ul>
 <li>下载<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">官网</a>上稳定版本的安装程序并安装</li>
 <li>确保安装过程中，<strong>勾选</strong>“Add to PATH”选项</li>
 </ul>
-<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>和之前同理，检查是否安装了Git。打开CMD，输入<code>$ git -v</code>。<br>若显示“错误”：</p>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>和之前同理，检查是否安装了Git。打开CMD，输入<code>git -v</code>。<br>若显示“错误”：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">官网下载页</a>下载安装程序并安装</li>
 </ul>
-<h3 id="IDE（可选）"><a href="#IDE（可选）" class="headerlink" title="IDE（可选）"></a>IDE（可选）</h3><p>我个人习惯是用<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code</a>。<delete>主要原因是好看</delete>。它可以通过安装第三方插件来支持几乎所有的语言（高亮语法结构），也就是说除了特定需求我不需要安装别的IDE了。</p>
+<h3 id="IDE（可选）"><a href="#IDE（可选）" class="headerlink" title="IDE（可选）"></a>IDE（可选）</h3><p>我个人习惯是用<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code</a>。<del>主要原因是好看</del>。它可以通过安装第三方插件来支持几乎所有的语言（高亮语法结构），也就是说除了特定需求我不需要安装别的IDE了。</p>
 <h1 id="2-安装Hexo并部署"><a href="#2-安装Hexo并部署" class="headerlink" title="2. 安装Hexo并部署"></a>2. 安装Hexo并部署</h1><ol start="0">
 <li>将CMD路径调到想要安装的文件夹路径。个人建议新建一个文件夹，这样万一安装错了可以直接删掉重来。</li>
 </ol>
 <ul>
-<li>（可选）用淘宝镜像源来安装后续内容。在CMD中输入<code>$ npm install -g cnpm --registry=https://registry.npm.taobao.org</code>并安装完成之后输入<code>cnpm -v</code>，如果显示版本号说明安装成功。之后所有带有<code>npm</code>的指令改为<code>cnpm</code>就可以从淘宝源上下载内容了。</li>
+<li>（可选）用淘宝镜像源来安装后续内容。在CMD中输入<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>并安装完成之后输入<code>cnpm -v</code>，如果显示版本号说明安装成功。之后所有带有<code>npm</code>的指令改为<code>cnpm</code>就可以从淘宝源上下载内容了。</li>
 </ul>
 <ol>
-<li>在CMD中输入<code>$ npm install -g hexo-cli</code>。</li>
-<li>安装完成后输入<code>$ hexo -v</code>，若显示版本号则说明安装成功。</li>
-<li>输入<code>$ hexo init &lt;foldername&gt;</code>，这样会在现有的路径中创建一个<code>&lt;foldername&gt;</code>的文件夹并在里面安装。</li>
+<li>在CMD中输入<code>npm install -g hexo-cli</code>。</li>
+<li>安装完成后输入<code>hexo -v</code>，若显示版本号则说明安装成功。</li>
+<li>输入<code>hexo init &lt;foldername&gt;</code>，这样会在现有的路径中创建一个<code>&lt;foldername&gt;</code>的文件夹并在里面安装。</li>
 </ol>
 <ul>
-<li>若提示安装不成功<strong>ERROR</strong>（常见），则运行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd &lt;foldername&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></li>
+<li>若提示安装不成功<strong>ERROR</strong>（常见），则运行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;foldername&gt;</span><br><span class="line">npm install         %此时工作目录应该是&lt;path&gt;\&lt;foldername&gt;%</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="4">
-<li>运行<code>$ hexo s</code>，默认会在本地4000端口中生成一个网站的访问链接。打开浏览器输入<code>http://localhost:4000</code>，如果成功的话就能见到一个建立起来的网站。<br> <code>$ hexo s</code>命令会监视文件变动并自动更新，所以可以用作预览生成的网站。</li>
+<li>运行<code>hexo s</code>，默认会在本地4000端口中生成一个网站的访问链接。打开浏览器输入<code>http://localhost:4000</code>，如果成功的话就能见到一个建立起来的网站。<br> <code>hexo s</code>命令会监视文件变动并自动更新，所以可以之后用作预览生成的网站。</li>
 </ol>
 <h1 id="3-写作以及页面属性"><a href="#3-写作以及页面属性" class="headerlink" title="3. 写作以及页面属性"></a>3. 写作以及页面属性</h1><h2 id="a-生成文章"><a href="#a-生成文章" class="headerlink" title="a) 生成文章"></a>a) 生成文章</h2><h2 id="b-生成草稿，并发布"><a href="#b-生成草稿，并发布" class="headerlink" title="b) 生成草稿，并发布"></a>b) 生成草稿，并发布</h2><h2 id="c-生成页面"><a href="#c-生成页面" class="headerlink" title="c) 生成页面"></a>c) 生成页面</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>CodeSheep程序羊 - 手把手教你从0开始搭建自己的个人博客 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.videocard.3">Bilibili</a> <a target="_blank" rel="noopener" href="https://youtu.be/erKYtw4Rfhk">YouTube</a><br>Hexo<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">官网</a>、<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">文档</a>及<a target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLD5dyQmlN6xPqBV0cxO7zAe1C8OmDPqfX">文档内嵌视频</a></p>
 <h1 id="额外连接"><a href="#额外连接" class="headerlink" title="额外连接"></a>额外连接</h1><p>Markdown<a target="_blank" rel="noopener" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">基础语法</a>以及<a target="_blank" rel="noopener" href="https://about.gitlab.com/handbook/markdown-guide/">使用指南</a></p>
@@ -185,8 +185,6 @@
                 <a href="/friends" class="item" target="_blank">Friends</a>
                 
                 <a href="/projects" class="item" target="_blank">Projects</a>
-                
-                <a href="/resume" class="item" target="_blank">Resume/CV</a>
                 
                 <a href="/about" class="item" target="_blank">About</a>
                 
