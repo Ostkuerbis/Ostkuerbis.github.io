@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   
-  <title>使用Hexo在GitHub Pages上搭建自己的个人博客 (最后更新于20210630) - Whoever very lazy</title>
+  <title>使用Hexo在GitHub Pages上搭建自己的个人博客 - Whoever very lazy</title>
   
     <link rel="shortcut icon" href="/favicon.png">
   
@@ -116,7 +116,7 @@
         </div>
         
 
-        <h2 class="title">使用Hexo在GitHub Pages上搭建自己的个人博客 (最后更新于20210630)</h2>
+        <h2 class="title">使用Hexo在GitHub Pages上搭建自己的个人博客</h2>
     </div>
 
     <div class="divider"></div>
@@ -148,26 +148,105 @@
 <ol>
 <li>在CMD中输入<code>npm install -g hexo-cli</code>。</li>
 <li>安装完成后输入<code>hexo -v</code>，若显示版本号则说明安装成功。</li>
-<li>输入<code>hexo init &lt;blog folder name&gt;</code>，这样会在现有的路径中创建一个<code>&lt;blog folder name&gt;</code>的文件夹并在里面安装。</li>
+<li>输入<code>hexo init &lt;blog-folder-name&gt;</code>，这样会在现有的路径中创建一个<code>&lt;blog-folder-name&gt;</code>的文件夹并在里面安装。</li>
 </ol>
 <ul>
-<li>若提示安装不成功<strong>ERROR</strong>（常见），则运行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd &lt;blog folder name&gt;</span><br><span class="line">$ npm install         %此时工作目录应该是&lt;path&gt;\&lt;blog folder name&gt;%</span><br></pre></td></tr></table></figure></li>
+<li>若提示安装不成功<strong>ERROR</strong>（常见），则运行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd &lt;blog folder name&gt;</span><br><span class="line">$ npm install           ::此时工作目录应该是&lt;path&gt;\&lt;blog folder name&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="4">
 <li>运行<code>hexo s</code>，默认会在本地4000端口中生成一个网站的访问链接。打开浏览器输入<code>http://localhost:4000</code>，如果成功的话就能见到一个建立起来的网站。<br> 注：理论上<code>hexo s</code>命令会监视文件变动并自动更新，所以可以之后用作预览生成的网站。命令其他选项参见<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands#server">官方文档</a>。</li>
 </ol>
-<h1 id="3-写作以及页面属性"><a href="#3-写作以及页面属性" class="headerlink" title="3. 写作以及页面属性"></a>3. 写作以及页面属性</h1><p>打开一个新的CMD窗口（这样本地端口的网站页面会实时刷新），并把工作目录调至<code>&lt;path&gt;\&lt;blog folder name&gt;</code>。此时如果安装了IDE，推荐直接在IDE界面以及内嵌命令提示符中操作。</p>
+<h1 id="3-写作以及页面属性"><a href="#3-写作以及页面属性" class="headerlink" title="3. 写作以及页面属性"></a>3. 写作以及页面属性</h1><p>打开一个新的CMD窗口（这样本地端口的网站页面会实时刷新），并把工作目录调至<code>&lt;path&gt;\&lt;blog-folder-name&gt;</code>。此时如果安装了IDE，推荐直接在IDE界面以及内嵌命令提示符中操作。</p>
 <ol>
-<li>生成文章<br>输入<code>hexo n &quot;&lt;post title&gt;&quot;</code>（注：由于CMD格式引号必须是双引号）。系统会在<code>&lt;path&gt;\&lt;blog folder name&gt;\source\_posts</code>中生成一个Markdown（.md）文件。可以打开这个文件并编辑博文内容（如果没有IDE就只能在记事本或者CMD窗口中编辑了）。可以输入以下内容来测试效果。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># H1</span><br><span class="line">## H2</span><br><span class="line">### H3</span><br><span class="line">#### H4</span><br><span class="line">##### H5</span><br><span class="line">###### H6</span><br><span class="line">*asterisks* or _underscores_.</span><br><span class="line">**asterisks** or __underscores__.</span><br><span class="line">**asterisks and _underscores_**.</span><br><span class="line">~~Scratch this.~~</span><br><span class="line"></span><br><span class="line">1. First ordered list item</span><br><span class="line">2. Another item</span><br><span class="line">⋅⋅* Unordered sub-list. </span><br><span class="line">* Unordered list can use asterisks</span><br><span class="line">- Or minuses</span><br><span class="line">+ Or pluses</span><br></pre></td></tr></table></figure>
-此时刷新本地页面，上面会有一篇新的博文。如果没有则在CMD中输入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean        %清理缓存文件和已生成的静态文件%</span><br><span class="line">$ hexo g            %生成静态文件%</span><br></pre></td></tr></table></figure></li>
+<li>生成文章<br>输入<code>hexo n &quot;&lt;post-title&gt;&quot;</code>（注：由于CMD格式引号必须是双引号）。系统会在<code>&lt;path&gt;\&lt;blog-folder-name&gt;\source\_posts</code>中生成一个Markdown（.md）文件。可以打开这个文件并编辑博文内容（如果没有IDE就只能在记事本或者CMD窗口中编辑了）。可以输入以下内容来测试效果。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># H1</span><br><span class="line">## H2</span><br><span class="line">### H3</span><br><span class="line">#### H4</span><br><span class="line">##### H5</span><br><span class="line">###### H6</span><br><span class="line">*asterisks* or _underscores_.</span><br><span class="line">**asterisks** or __underscores__.</span><br><span class="line">**asterisks and _underscores_**.</span><br><span class="line">~~Scratch this.~~</span><br><span class="line"></span><br><span class="line">1. First ordered list item</span><br><span class="line">2. Another item</span><br><span class="line">⋅⋅* Unordered sub-list. </span><br><span class="line">* Unordered list can use asterisks</span><br><span class="line">- Or minuses</span><br><span class="line">+ Or pluses</span><br></pre></td></tr></table></figure>
+此时刷新本地页面，上面会有一篇新的博文。如果没有则在CMD中输入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean        ::清理缓存文件和已生成的静态文件</span><br><span class="line">$ hexo g            ::生成静态文件</span><br></pre></td></tr></table></figure></li>
 </ol>
 <ol start="2">
-<li><p>生成草稿，发布<br>输入<code>hexo new draft &quot;&lt;draft title&gt;&quot;</code>。系统会在<code>&lt;path&gt;\&lt;blog folder name&gt;\source\_drafts</code>中生成草稿。草稿默认不会被渲染，也就是说最后生成静态网站的时候不会显示草稿。<br>发布草稿可以通过输入<code>$ hexo publish &lt;filename&gt;</code>。但是我个人会直接在IDE中将草稿文件直接拖入_posts文件夹。</p>
+<li><p>生成草稿，发布<br>输入<code>hexo new draft &quot;&lt;draft-title&gt;&quot;</code>。系统会在<code>&lt;path&gt;\&lt;blog-folder-name&gt;\source\_drafts</code>中生成草稿。草稿默认不会被渲染，也就是说最后生成静态网站的时候不会显示草稿。<br>发布草稿可以通过输入<code>$ hexo publish &lt;filename&gt;</code>。但是我个人会直接在IDE中将草稿文件直接拖入_posts文件夹。</p>
 </li>
-<li><p>生成页面</p>
+<li><p>生成页面及其他<br>输入<code>hexo new page &quot;&lt;page-title&gt;&quot;</code>。系统会在<code>&lt;path&gt;\&lt;blog-folder-name&gt;\source</code>中生成“page title”的文件夹，里面有一个名为“index.md”的文件。<br><code>hexo new</code>是根据<code>&lt;path&gt;\&lt;blog-folder-name&gt;\scaffolds</code>内的模板来生成文件的，可以自定义添加编辑模板。</p>
+</li>
+<li><p>页面属性/Front-Matter<br>在每篇.md的博文文件中最上方会有一块被三条横杠分隔开来的区域，这就是Front matter。里面具体能加入的参数格式及其描述可以在<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">官方文档页面</a>中查看。</p>
 </li>
 </ol>
-<h1 id="4-配置文件"><a href="#4-配置文件" class="headerlink" title="4. 配置文件"></a>4. 配置文件</h1><h1 id="5-在GitHub-Pages上部署"><a href="#5-在GitHub-Pages上部署" class="headerlink" title="5. 在GitHub Pages上部署"></a>5. 在GitHub Pages上部署</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>CodeSheep程序羊 - 手把手教你从0开始搭建自己的个人博客 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.videocard.3">Bilibili</a> <a target="_blank" rel="noopener" href="https://youtu.be/erKYtw4Rfhk">YouTube</a><br>Hexo<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">官网</a>、<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">文档</a>及<a target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLD5dyQmlN6xPqBV0cxO7zAe1C8OmDPqfX">文档内嵌视频</a></p>
+<h1 id="4-配置文件"><a href="#4-配置文件" class="headerlink" title="4. 配置文件"></a>4. 配置文件</h1><p>配置文件就是名为_config.yml的文件。一开始并不需要更改很多参数，是往后个性化时会用得到。配置文件分为网页配置文件，在〈blog-folder-name〉文件夹下，和主题配置文件，在<code>&lt;path&gt;\&lt;blog folder name&gt;\themes\&lt;theme-name&gt;</code>下（主题的安装在之后的小节中讲）。<br>网站配置文件中所有参数格式及其描述可以在<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">官方文档页面</a>中查看，这里只说几个最基本，一开始就可以更改的参数：</p>
+<table>
+<thead>
+<tr>
+<th align="right">参数</th>
+<th align="left">描述</th>
+<th></th>
+<th align="left">说白话</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right"><strong>title</strong></td>
+<td align="left"><em>网站标题</em></td>
+<td>-</td>
+<td align="left">浏览器标签上显示的内容</td>
+</tr>
+<tr>
+<td align="right"><strong>subtitle</strong></td>
+<td align="left"><em>网站副标题</em></td>
+<td>-</td>
+<td align="left">某些主题中打开主页的内容第一行字</td>
+</tr>
+<tr>
+<td align="right"><strong>description</strong></td>
+<td align="left"><em>网站描述</em></td>
+<td>-</td>
+<td align="left">某些主题中打开主页怼在脸上的大字</td>
+</tr>
+<tr>
+<td align="right"><strong>keywords</strong></td>
+<td align="left"><em>网站关键字</em></td>
+<td>-</td>
+<td align="left">搜索引擎在搜索的时候首先找到的内容</td>
+</tr>
+<tr>
+<td align="right"><strong>author</strong></td>
+<td align="left"><em>作者名字</em></td>
+<td>-</td>
+<td align="left">会在博客博文各个地方都提醒人这都是谁写的</td>
+</tr>
+</tbody></table>
+<h1 id="5-在GitHub-Pages上部署"><a href="#5-在GitHub-Pages上部署" class="headerlink" title="5. 在GitHub Pages上部署"></a>5. 在GitHub Pages上部署</h1><ol start="0">
+<li><p>既然想在GitHub上部署，那么首先需要有自己的GitHub账号吧（废话）。</p>
+</li>
+<li><p>新建一个“〈username〉.github.io”的库，并设置为public，往后便可以直接通过这个域名样式的库名浏览这个博客了。（当然，可以是别的名称，但是首先还是需要.io作为库名结尾，而且这样往后就需要访问〈username〉\〈respository-name〉.io来访问博客）</p>
+</li>
+<li><p>因为GitHub从2021年中（现在）开始便不支持远端（Git和API Operation）通过用户名密码来访问编辑储存库了，所以需要生成一个个人访问令牌（Token）。<a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">官方页面</a>有详细步骤和注意事项，这里简单说明一下。<br>GitHub页面右上角个人资料照片→设置（Settings）→左侧边栏开发者设置（Developer settings）→左侧边栏个人访问令牌（Personal access tokens）→右侧生成新令牌（Generate new token）。然后给令牌一个名称以及勾选权限（目前为止我只勾选了repo权限没有遇到任何问题），然后生成令牌并保存到本地（因为离开页面以后就再也看不到令牌了）。</p>
+</li>
+<li><p>安装Git部署插件。在CMD中输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>等待安装完成</p>
+</li>
+<li><p>修改页面配置。打开〈blog-folder-name〉文件夹下的_config.yml，查看末端的代码，修改为（这里默认在步骤2中创建了“〈username〉.github.io”的库，其他位置和名称的库可以类比一下）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/&lt;username&gt;/&lt;username&gt;.github.io</span><br><span class="line">  branch: master</span><br><span class="line">  token: $ &lt;yourPAT&gt;</span><br></pre></td></tr></table></figure>
+<p>注：PIA之前的“$”符号是必要的</p>
+</li>
+<li><p>在CMD中输入<code>hexo g -d</code>生成静态页面并部署，这样就通过<code>&lt;username&gt;.github.io</code>来访问博客页面了。</p>
+</li>
+</ol>
+<h1 id="6-主题"><a href="#6-主题" class="headerlink" title="6. 主题"></a>6. 主题</h1><p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo官网</a>和GitHub上有许多免费的主题，可以选择一个自己喜欢的然后将自己的博客个性化成自己想要的样子。</p>
+<ol>
+<li>下载主题。在cmd中输入<code>git clone &lt;theme-url&gt; themes/&lt;theme-name&gt;</code>，其中Theme URL应该是一个类似于<code>githhub.com/&lt;some-username&gt;/hexo-theme-&lt;theme-name&gt;.git</code>的地址。确认在<code>&lt;path&gt;/themes</code>文件夹下多出来了下载的主题文件夹。</li>
+<li>打开〈blog-folder-name〉文件夹下的_config.xml，将“theme”的值修改为〈theme-name〉。</li>
+<li>打开<code>&lt;path&gt;/themes/&lt;theme-name&gt;</code>中的_config.xml，将里面的属性按自己需要设置。</li>
+<li>这之后重新生成一遍页面应该就能在本地端口看到跟换的主题了。</li>
+</ol>
+<h1 id="7-一些简单的批处理文件"><a href="#7-一些简单的批处理文件" class="headerlink" title="7. 一些简单的批处理文件"></a>7. 一些简单的批处理文件</h1><p>我因为懒，在〈blog-folder-name〉文件夹下又创建一个文件夹用来放批处理文件。例如：</p>
+<ul>
+<li><p>新建一个草稿</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">cd /d %~dp0..     </span><br><span class="line">hexo new draft --path draft.md &quot;Draft Title&quot;    </span><br></pre></td></tr></table></figure>
+<p>其中<code>cd /d</code>可以直接转移到其他磁盘的工作目录，<code>%~dp0</code>获取本文件位置，这样就会在“_draft”文件夹下创建了一个名为“draft.md”的文件，标题是“Draft Title”。</p>
+</li>
+<li><p>清空缓存，然后生成新的静态页面并发布</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">cd /d %~dp0..</span><br><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></table></figure>
+<p>这样往后就可以直接在资源管理器运行或者拖动进CMD运行批处理文件而不是打一串东西了。</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>CodeSheep程序羊 - 手把手教你从0开始搭建自己的个人博客 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.videocard.3">Bilibili</a> <a target="_blank" rel="noopener" href="https://youtu.be/erKYtw4Rfhk">YouTube</a><br>Hexo<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">官网</a>、<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">文档</a>及<a target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLD5dyQmlN6xPqBV0cxO7zAe1C8OmDPqfX">文档内嵌视频</a></p>
 <h1 id="额外连接"><a href="#额外连接" class="headerlink" title="额外连接"></a>额外连接</h1><p>Markdown<a target="_blank" rel="noopener" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">基础语法</a>以及<a target="_blank" rel="noopener" href="https://about.gitlab.com/handbook/markdown-guide/">使用指南</a></p>
 
     </div>
