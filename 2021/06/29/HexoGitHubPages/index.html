@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   
-  <title>使用Hexo在GitHub Pages上搭建自己的个人博客 (最后更新于20210629) - Whoever very lazy</title>
+  <title>使用Hexo在GitHub Pages上搭建自己的个人博客 (最后更新于20210630) - Whoever very lazy</title>
   
     <link rel="shortcut icon" href="/favicon.png">
   
@@ -116,7 +116,7 @@
         </div>
         
 
-        <h2 class="title">使用Hexo在GitHub Pages上搭建自己的个人博客 (最后更新于20210629)</h2>
+        <h2 class="title">使用Hexo在GitHub Pages上搭建自己的个人博客 (最后更新于20210630)</h2>
     </div>
 
     <div class="divider"></div>
@@ -125,7 +125,7 @@
         <h1 id="0-搭建个人博客意义"><a href="#0-搭建个人博客意义" class="headerlink" title="0. 搭建个人博客意义"></a>0. 搭建个人博客意义</h1><p>就算是像我一样的小白，也知道在学习新知识之后对于内容的归纳总结输出练习的重要性，包括但不限于笔记、心得、一小段Demo等等。这些都可以发到个人的博客上面，方便自己查阅复习。反过来说，自己踩的坑都可以记录下来，可以避免以后反复踩同一个坑。<br>稍微功利一点，很多从业者都说，与工作相关的博客在面试的时候是一个加分项。至少写博客没有什么坏处。</p>
 <p>当然，我是小白，没法像大神那样写出什么很有意义或者很厉害的东西。但是我没有理由不写，就像不是专业厨师就不配做饭拍照发朋友圈了嘛？那么在写博客之前，先搭建自己的个人博客吧！</p>
 <p>当然，搭建博客的时候，<strong>肯定</strong>~会出现问题的。这不严重，大不了删了从头再来一遍罢了。</p>
-<p>那在这篇文章是从零开始一步一步，就像标题那样，（在Windows系统中）用Hexo在GitHub Page上部署自己的个人博客。里面也写了一些我遇到的问题以及我找到的解决方法，以及某些我找到的偷懒办法。<br><sub>当然在别的操作系统用别的（静态）网站框架在别的服务器上部署的步骤应该可以类比吧。</sub></p>
+<p>那在这篇文章是从零开始一步一步，就像标题那样，（在Windows系统中）用Hexo在GitHub Page上部署自己的个人博客。里面也写了一些我遇到的问题以及我找到的解决方法，以及某些我找到的偷懒办法。<br><del>当然在别的操作系统用别的（静态）网站框架在别的服务器上部署的步骤应该可以类比吧。</del></p>
 <hr>
 <p>注：以下内容默认阅读的人了解命令提示符（按<code>Win+R</code>，输入<code>cmd</code>并运行）中的基本操作。</p>
 <h1 id="1-部署环境"><a href="#1-部署环境" class="headerlink" title="1. 部署环境"></a>1. 部署环境</h1><p>安装Hexo之前，首先需要安装<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js</a>和<a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a>。以及为了之后的许多操作，甚至之后的编辑文章，我个人推荐再安装一个支持多语言的IDE。</p>
@@ -138,7 +138,7 @@
 <ul>
 <li><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">官网下载页</a>下载安装程序并安装</li>
 </ul>
-<h3 id="IDE（可选）"><a href="#IDE（可选）" class="headerlink" title="IDE（可选）"></a>IDE（可选）</h3><p>我个人习惯是用<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code</a>。<del>主要原因是好看</del>。它可以通过安装第三方插件来支持几乎所有的语言（高亮语法结构），也就是说除了特定需求我不需要安装别的IDE了。</p>
+<h3 id="IDE（可选，但推荐）"><a href="#IDE（可选，但推荐）" class="headerlink" title="IDE（可选，但推荐）"></a>IDE（可选，但推荐）</h3><p>我个人习惯是用<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code</a>。<del>主要原因是好看</del>。它可以通过安装第三方插件来支持几乎所有的语言（高亮语法结构），也就是说除了特定需求我不需要安装别的IDE了。</p>
 <h1 id="2-安装Hexo并部署"><a href="#2-安装Hexo并部署" class="headerlink" title="2. 安装Hexo并部署"></a>2. 安装Hexo并部署</h1><ol start="0">
 <li>将CMD路径调到想要安装的文件夹路径。个人建议新建一个文件夹，这样万一安装错了可以直接删掉重来。</li>
 </ol>
@@ -148,15 +148,26 @@
 <ol>
 <li>在CMD中输入<code>npm install -g hexo-cli</code>。</li>
 <li>安装完成后输入<code>hexo -v</code>，若显示版本号则说明安装成功。</li>
-<li>输入<code>hexo init &lt;foldername&gt;</code>，这样会在现有的路径中创建一个<code>&lt;foldername&gt;</code>的文件夹并在里面安装。</li>
+<li>输入<code>hexo init &lt;blog folder name&gt;</code>，这样会在现有的路径中创建一个<code>&lt;blog folder name&gt;</code>的文件夹并在里面安装。</li>
 </ol>
 <ul>
-<li>若提示安装不成功<strong>ERROR</strong>（常见），则运行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;foldername&gt;</span><br><span class="line">npm install         %此时工作目录应该是&lt;path&gt;\&lt;foldername&gt;%</span><br></pre></td></tr></table></figure></li>
+<li>若提示安装不成功<strong>ERROR</strong>（常见），则运行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd &lt;blog folder name&gt;</span><br><span class="line">$ npm install         %此时工作目录应该是&lt;path&gt;\&lt;blog folder name&gt;%</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="4">
-<li>运行<code>hexo s</code>，默认会在本地4000端口中生成一个网站的访问链接。打开浏览器输入<code>http://localhost:4000</code>，如果成功的话就能见到一个建立起来的网站。<br> <code>hexo s</code>命令会监视文件变动并自动更新，所以可以之后用作预览生成的网站。</li>
+<li>运行<code>hexo s</code>，默认会在本地4000端口中生成一个网站的访问链接。打开浏览器输入<code>http://localhost:4000</code>，如果成功的话就能见到一个建立起来的网站。<br> 注：理论上<code>hexo s</code>命令会监视文件变动并自动更新，所以可以之后用作预览生成的网站。命令其他选项参见<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands#server">官方文档</a>。</li>
 </ol>
-<h1 id="3-写作以及页面属性"><a href="#3-写作以及页面属性" class="headerlink" title="3. 写作以及页面属性"></a>3. 写作以及页面属性</h1><h2 id="a-生成文章"><a href="#a-生成文章" class="headerlink" title="a) 生成文章"></a>a) 生成文章</h2><h2 id="b-生成草稿，并发布"><a href="#b-生成草稿，并发布" class="headerlink" title="b) 生成草稿，并发布"></a>b) 生成草稿，并发布</h2><h2 id="c-生成页面"><a href="#c-生成页面" class="headerlink" title="c) 生成页面"></a>c) 生成页面</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>CodeSheep程序羊 - 手把手教你从0开始搭建自己的个人博客 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.videocard.3">Bilibili</a> <a target="_blank" rel="noopener" href="https://youtu.be/erKYtw4Rfhk">YouTube</a><br>Hexo<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">官网</a>、<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">文档</a>及<a target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLD5dyQmlN6xPqBV0cxO7zAe1C8OmDPqfX">文档内嵌视频</a></p>
+<h1 id="3-写作以及页面属性"><a href="#3-写作以及页面属性" class="headerlink" title="3. 写作以及页面属性"></a>3. 写作以及页面属性</h1><p>打开一个新的CMD窗口（这样本地端口的网站页面会实时刷新），并把工作目录调至<code>&lt;path&gt;\&lt;blog folder name&gt;</code>。此时如果安装了IDE，推荐直接在IDE界面以及内嵌命令提示符中操作。</p>
+<ol>
+<li>生成文章<br>输入<code>hexo n &quot;&lt;post title&gt;&quot;</code>（注：由于CMD格式引号必须是双引号）。系统会在<code>&lt;path&gt;\&lt;blog folder name&gt;\source\_posts</code>中生成一个Markdown（.md）文件。可以打开这个文件并编辑博文内容（如果没有IDE就只能在记事本或者CMD窗口中编辑了）。可以输入以下内容来测试效果。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># H1</span><br><span class="line">## H2</span><br><span class="line">### H3</span><br><span class="line">#### H4</span><br><span class="line">##### H5</span><br><span class="line">###### H6</span><br><span class="line">*asterisks* or _underscores_.</span><br><span class="line">**asterisks** or __underscores__.</span><br><span class="line">**asterisks and _underscores_**.</span><br><span class="line">~~Scratch this.~~</span><br><span class="line"></span><br><span class="line">1. First ordered list item</span><br><span class="line">2. Another item</span><br><span class="line">⋅⋅* Unordered sub-list. </span><br><span class="line">* Unordered list can use asterisks</span><br><span class="line">- Or minuses</span><br><span class="line">+ Or pluses</span><br></pre></td></tr></table></figure>
+此时刷新本地页面，上面会有一篇新的博文。如果没有则在CMD中输入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean        %清理缓存文件和已生成的静态文件%</span><br><span class="line">$ hexo g            %生成静态文件%</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="2">
+<li><p>生成草稿，发布<br>输入<code>hexo new draft &quot;&lt;draft title&gt;&quot;</code>。系统会在<code>&lt;path&gt;\&lt;blog folder name&gt;\source\_drafts</code>中生成草稿。草稿默认不会被渲染，也就是说最后生成静态网站的时候不会显示草稿。<br>发布草稿可以通过输入<code>$ hexo publish &lt;filename&gt;</code>。但是我个人会直接在IDE中将草稿文件直接拖入_posts文件夹。</p>
+</li>
+<li><p>生成页面</p>
+</li>
+</ol>
+<h1 id="4-配置文件"><a href="#4-配置文件" class="headerlink" title="4. 配置文件"></a>4. 配置文件</h1><h1 id="5-在GitHub-Pages上部署"><a href="#5-在GitHub-Pages上部署" class="headerlink" title="5. 在GitHub Pages上部署"></a>5. 在GitHub Pages上部署</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>CodeSheep程序羊 - 手把手教你从0开始搭建自己的个人博客 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.videocard.3">Bilibili</a> <a target="_blank" rel="noopener" href="https://youtu.be/erKYtw4Rfhk">YouTube</a><br>Hexo<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">官网</a>、<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">文档</a>及<a target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLD5dyQmlN6xPqBV0cxO7zAe1C8OmDPqfX">文档内嵌视频</a></p>
 <h1 id="额外连接"><a href="#额外连接" class="headerlink" title="额外连接"></a>额外连接</h1><p>Markdown<a target="_blank" rel="noopener" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">基础语法</a>以及<a target="_blank" rel="noopener" href="https://about.gitlab.com/handbook/markdown-guide/">使用指南</a></p>
 
     </div>
